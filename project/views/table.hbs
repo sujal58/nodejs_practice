@@ -1,0 +1,40 @@
+{{>navbar}}
+
+<h1 class='text-center'>Table</h1><br><br>
+
+<table class="table table-striped-columns">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">E-mail</th>
+                <th scope="col">Address</th>
+                <th scope="col">Phone</th>
+                <th scope="col">DOB</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {{#each data}}
+                <tr>
+                    <th scope="row">{{id}}</th>
+                    <td>{{name}}</td>
+                    <td>{{email}}</td>
+                    <td>{{address}}</td>
+                    <td>{{phone}}</td>
+                    <td>{{DOB}}</td>
+
+
+                </tr>
+            {{/each}}
+            {{!-- <tr>
+                <th scope="row">1</th>
+                <td>Sujal Pandey</td>
+                <td>Sujalpandey2058@gmail.com</td>
+                <td>Badera</td>
+                <td>9867712849</td>
+
+            </tr>
+             --}}
+        </tbody>
+</table>

@@ -1,0 +1,35 @@
+{{>navbar}}
+
+<!-- form -->
+    <form action="/signup/get" method="GET">
+        <div class="form">
+            <div class="container">
+                <div class="row">
+                    <div class="form-title pt-5 ">
+                        <h1 class="form-heading text-center mb-4">Sign Up</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-lg-6 col-md-6 col-sm-12">
+                        <label for="name">Name <span>*</span></label>
+                        <input type="text" class="form-control" placeholder="Enter your Full-name" name="name"><br>
+                        <label for="email">E-mail <span>*</span></label>
+                        <input type="text" class="form-control" placeholder="Enter your e-mail" name="email"><br>
+                        <label for="subject">Address <span>*</span></label>
+                        <input type="text" class="form-control" placeholder="Enter Address" name="address">
+                    </div>
+
+                    <div class="col col-md-6 col-sm-12 col-lg-6">
+                        <label for="subject">Phone <span>*</span></label>
+                        <input type="number" class="form-control" placeholder="98........" name="phone"><br>
+                        <label for="subject">DOB <span>*</span></label>
+                        <input type="date" class="form-control" placeholder="" name="dob">
+                        <br>
+                        {{!-- <button type="submit" class="btn btn-primary">Sign in</button> --}}
+                        <input type="submit" value="Submit" class="btn btn-success" width="10px" style="float: right;">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>

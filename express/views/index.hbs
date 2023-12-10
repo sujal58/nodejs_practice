@@ -1,0 +1,18 @@
+{{>nav_partial}}
+
+ {{!-- {{#if object.isValid}}
+    {{object.name}}
+    {{!-- <h1>{{object.isValid}}</h1> 
+    {{else}}
+        <h1>error</h1>
+        {{/if}}
+ 
+
+{{#each std}}
+    <h2>{{increment @index}}: {{name}} {{rollno}} {{address}}</h2>
+{{/each}} --}}
+
+<h1>Shopping</h1>
+{{#each title}}
+   <h3>{{increment @index}}. Name:{{name}}<br> Price: {{price}}<br> Increarsed by: {{increase price increase}}</h3> 
+{{/each}}

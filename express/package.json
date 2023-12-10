@@ -1,0 +1,18 @@
+{
+  "name": "sujalexpress",
+  "version": "1.0.0",
+  "description": "This is a first express program",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon src/app.js -e js,hbs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "sujal pandey",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-handlebars": "^7.1.2",
+    "handlebars": "^4.7.8",
+    "hbs": "^4.2.0"
+  }
+}
