@@ -1,6 +1,7 @@
 const express = require("express");
 const dotenv = require("dotenv").config();
 const router = require("./routes/userRoutes.js");
+const srouter = require("./routes/studentRoutes.js");
 const app = express();
 const port = process.env.PORT || 5001;
 
@@ -12,6 +13,7 @@ app.get("/", (req, res) => {
 //api for user
 
 app.use("/api/user", require("./routes/userRoutes.js"));
+app.use("/api/student", require("./routes/studentRoutes.js"));
 
 app.listen(port, () => {
   console.log(`Server is ruuning on port:`);
