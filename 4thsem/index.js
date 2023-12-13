@@ -1,7 +1,7 @@
 const express = require("express");
 const dotenv = require("dotenv").config();
-const router = require("./routes/userRoutes.js");
 const srouter = require("./routes/studentRoutes.js");
+const db = require("./config/db.js");
 const app = express();
 const port = process.env.PORT || 5001;
 
@@ -12,10 +12,16 @@ app.get("/", (req, res) => {
 //userRoute middleware
 //api for user
 
-app.use("/api/user", require("./routes/userRoutes.js"));
 app.use("/api/student", require("./routes/studentRoutes.js"));
 
-app.listen(port, () => {
-  console.log(`Server is ruuning on port:`);
-  console.log(`http://localhost:${port}`);
-});
+db.query("SELECT 1")
+  .then(() => {
+    console.log("Database connection successfull!!");
+    app.listen(port, () => {
+      console.log(`Server is ruuning on port:`);
+      console.log(`http://localhost:${port}`);
+    });
+  })
+  .catch((error) => {
+    console.log(error);
+  });

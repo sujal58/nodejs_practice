@@ -1,13 +1,36 @@
-const getAllStudent = (req, res) => {
-  res.json({ message: "All users are exported" });
+const { json } = require("express");
+const db = require("../config/db.js");
+
+const getAllStudent = async (req, res) => {
+  // res.json({ message: "All users are exported" });
+  // let sql = "select * from student_data";
+
+  try {
+    let sql = "select * from students";
+    const [data] = await db.query(sql);
+    res.status(200).json({ message: "Get all Users", details: data });
+  } catch (error) {
+    console.error("Error while fetching data", error);
+    res.status(500).json({ err: "Internal Server Error" });
+  }
 };
 
 const createStudent = (req, res) => {
   res.json({ message: "Student created successfully" });
 };
 
-const getStudentById = (req, res) => {
-  res.json({ message: `Student with id ${req.params.id} is found ` });
+const getStudentById = async (req, res) => {
+  try {
+    let sql = `select * from students where id =${req.params.id}`;
+    const [data] = await db.query(sql);
+    res.status(200).json({
+      message: `Student with id ${req.params.id} is found.`,
+      details: data,
+    });
+  } catch (error) {
+    console.error("Error while searching user data!");
+    res.status(500).json({ err: "Internal server Error" });
+  }
 };
 
 const updateStudent = (req, res) => {

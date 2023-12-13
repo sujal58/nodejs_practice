@@ -7,13 +7,4 @@ const connection = mysql.createPool({
   database: "college",
 });
 
-let sql = "select * from students";
-
-connection
-  .query(sql)
-  .then((data) => {
-    console.log(data);
-  })
-  .catch((error) => {
-    console.log(error);
-  });
+module.exports = connection;
