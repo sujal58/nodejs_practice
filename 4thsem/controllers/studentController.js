@@ -15,13 +15,22 @@ const getAllStudent = async (req, res) => {
   }
 };
 
-const createStudent = (req, res) => {
-  res.json({ message: "Student created successfully" });
+const createStudent = async (req, res) => {
+  try {
+    const sql = "insert into students (name,address,faculty) values(?)";
+    const { name, address, faculty } = req.body;
+    const userData = await db.query(sql, [name, address, faculty]);
+    res.status(200).json({ message: "user created successfully !!" });
+  } catch (error) {
+    console.error("Failed to create user!!");
+    res.status(500).json({ err: "Intenal server Error" });
+  }
 };
 
 const getStudentById = async (req, res) => {
   try {
-    let sql = `select * from students where id =${req.params.id}`;
+    const id = req.params.id;
+    let sql = `select * from students where id =` + id;
     const [data] = await db.query(sql);
     res.status(200).json({
       message: `Student with id ${req.params.id} is found.`,
